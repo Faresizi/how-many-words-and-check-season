@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Challenge One - Word Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 30px;
+      text-align: center;
+      max-width: 500px;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: none;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #ce4040;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Challenge One: Word Counter</h1>
+    <textarea id="message" placeholder="Type your message here..."></textarea>
+    <br>
+    <button onclick="countWords()">Count Words</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function countWords() {
+      const message = document.getElementById("message").value;
+      const words = message.trim().split(/\s+/);
+      const wordCount = message.trim() ? words.length : 0;
+      document.getElementById("result").innerText = `This message contains ${wordCount} word(s).`;
+    }
+  </script>
+</body>
+</html>

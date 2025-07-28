@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Check Season</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #f3f4f6, #e5e7eb);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      color: #1f2937;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #9ca3af;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #111827;
+    }
+  </style>
+</head>
+<body>
+  <h1>check Season</h1>
+  <input type="text" id="monthInput" placeholder="Enter month (e.g., March)">
+  <button onclick="displaySeason()">Check Season</button>
+  <div id="result"></div>
+
+  <script>
+    function checkSeason(month) {
+      const lowerMonth = month.toLowerCase();
+
+      if (["march", "april", "may"].includes(lowerMonth)) {
+        return "Spring";
+      } else if (["june", "july", "august"].includes(lowerMonth)) {
+        return "Summer";
+      } else if (["september", "october", "november"].includes(lowerMonth)) {
+        return "Autumn";
+      } else if (["december", "january", "february"].includes(lowerMonth)) {
+        return "Winter";
+      } else {
+        return "Invalid month";
+      }
+    }
+
+    function displaySeason() {
+      const month = document.getElementById("monthInput").value;
+      const season = checkSeason(month);
+      document.getElementById("result").textContent = "Season: " + season;
+    }
+  </script>
+</body>
+</html>
